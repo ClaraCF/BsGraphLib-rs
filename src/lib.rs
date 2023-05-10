@@ -8,7 +8,7 @@ pub struct BsCmdGraph {
 
 
 // Implement private methods for Bs_cmd_graph
-impl Bs_cmd_graph {
+impl BsCmdGraph {
     /* Check that the given coordinates are
      * within the boundaries of the display
      * Returns true if on boundaries, false otherwise
@@ -38,10 +38,10 @@ impl Bs_cmd_graph {
 
 
 // Implement public methods for Bs_cmd_graph
-impl Bs_cmd_graph {
+impl BsCmdGraph {
     // Constructor taking in the window size and textur
-    pub fn new(width: i32, height: i32, texture: i32) -> Bs_cmd_graph {
-        return Bs_cmd_graph {
+    pub fn new(width: i32, height: i32, texture: i32) -> BsCmdGraph {
+        return BsCmdGraph {
             width: width,
             height: height,
             texture: texture,
@@ -88,10 +88,10 @@ impl Bs_cmd_graph {
      * Returns true if the line is successfully drawn, false otherwise
     */
     pub fn draw_line(&mut self, x1: i32, y1: i32, x2: i32, y2: i32, color: i32)  -> bool {
-        let mut incyi = 0;
-        let mut incyr = 0;
-        let mut incxi = 0;
-        let mut incxr = 0;
+        let incyi;
+        let incyr;
+        let incxi;
+        let incxr;
 
         // Calcultate deltas between the points
         let mut dx = x2 - x1;
