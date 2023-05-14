@@ -1,9 +1,9 @@
-mod lib;
-use std::time::Duration;
+use bsgraphlib;
 use std::thread;
+use std::time;
 
 fn main() {
-    let mut screen = lib::BsCmdGraph::new(50, 50, '#' as i32);
+    let mut screen = bsgraphlib::BsCmdGraph::new(50, 50, '#' as i32);
     
     loop {
         screen.cmd_clear();
@@ -13,7 +13,10 @@ fn main() {
 
         screen.cmd_draw();
         
-        // TODO: Find a better way to make this thing work that doesn't involve stopping execution
-        thread::sleep(Duration::from_millis(5));
+        /* FIXME: If you don't add this delay, the screen breaks
+         * Find a way to make this work without stopping execution */
+        thread::sleep(time::Duration::from_millis(5));
     }
 }
+
+// TODO: Write tests

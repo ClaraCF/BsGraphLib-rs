@@ -1,6 +1,6 @@
 [package]
 name = "bsgraphlib-rs"
-version = "0.2.0"
+version = "0.2.1"
 authors = ["Clara Carrasquel Fiorini"]
 edition = "2021"
 license = "MIT"
@@ -10,12 +10,13 @@ readme = "README.md"
 [lib]
 name = "bsgraphlib"
 
+[target.'cfg(windows)'.dependencies]
+windows = "0.48.0"
+
 [[bin]]
 name = "demo"
 path = "src/main.rs"
 test = true
 
-[dependencies]
-
-[target.'cfg(windows)'.dependencies]
-windows = "0.48.0"
+[demo.dependencies]
+bsgraphlib = {path = "src/lib.rs"}
